@@ -14,7 +14,10 @@ app.get("/", async (req, res) => {
 	});
 });
 
-app.use("/api", router);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use("/", router);
 
 app.listen(PORT || 8000, () => {
 	console.log("Server running on PORT 8000");
