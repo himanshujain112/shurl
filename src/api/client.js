@@ -16,8 +16,8 @@ router.post("/shorten", async (req, res) => {
 			shortUrl: nanoid(7),
 			analytics: [],
 			author: {
-				provider: data.author.provider,
-				user_id: data.author.user_id,
+				provider: data.author?.provider ?? null,
+				user_id: data.author?.user_id ?? null,
 			},
 		});
 
