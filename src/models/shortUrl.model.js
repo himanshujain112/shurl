@@ -4,7 +4,15 @@ const urlSchema = new mongoose.Schema(
 	{
 		originalUrl: { type: String, required: true },
 		shortUrl: { type: String, required: true },
-		analytics: [{ referrer: String, timestamp: Date.now }],
+		analytics: [
+			{
+				referrer: String,
+				timestamp: {
+					type: Date,
+					default: Date.now,
+				},
+			},
+		],
 		author: {
 			provider: {
 				type: String,
