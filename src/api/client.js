@@ -23,7 +23,11 @@ router.post("/shorten", async (req, res) => {
 
 		res.status(201).send(urlBody);
 	} catch (err) {
-		res.status(400).send("Url shortening failed");
+		res.status(400).send({
+			error: "Url shortening failed",
+			message: err?.message || "Unknown error",
+			type: err?.name || "Error"
+		});
 	}
 });
 
